@@ -2,8 +2,8 @@
 研究室の本の貸出返却システム
 
 # 使用技術
-Python
-SQLite
+<p>Python</p>
+<p>SQLite</p>
 
 # 機能
 - 貸出
