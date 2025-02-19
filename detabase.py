@@ -1,3 +1,5 @@
+# データベース作るファイル
+
 import sqlite3
 
 dbname = 'lablib.db'
@@ -13,6 +15,12 @@ cur.execute(books_table_sql)
 
 rent_table_sql = 'CREATE TABLE IF NOT EXISTS rent (user_id TEXT, isbn INTEGER, rent_date DATE, return_date DATE, PRIMARY KEY(user_id, isbn))' 
 cur.execute(rent_table_sql)
+
+# テーブルを削除する
+#cur.execute('DROP TABLE users')
+#cur.execute('DROP TABLE books')
+#cur.execute('DROP TABLE rent')
+
 
 conn.commit()
 conn.close()
