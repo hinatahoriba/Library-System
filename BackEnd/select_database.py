@@ -1,6 +1,6 @@
 def display_all(table_name):
     import sqlite3
-    con = sqlite3.connect("Library/library_system.db")
+    con = sqlite3.connect("library_system.db")
     cur = con.cursor()
     print("-" * 20)
     print(f"以下は{table_name}")
@@ -11,7 +11,7 @@ def display_all(table_name):
 
 def display():
     import sqlite3
-    con = sqlite3.connect("Library/library_system.db")
+    con = sqlite3.connect("library_system.db")
     cur = con.cursor()
     print("-" * 20)
     print("以下は他の人が借りている本です。")
