@@ -36,7 +36,7 @@
             })
             .then(response => response.json())
             .then(data => {
-                document.getElementById('result').innerHTML = '名前: ' + data.name + '<br>番号: ' + data.number;
+                document.getElementById('result').innerHTML = data.message + '<br>名前: ' + data.name + '<br>番号: ' + data.number;
             })
             .catch(error => console.error('Error:', error));
         });
