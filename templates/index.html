@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名前と番号の入力</title>
+</head>
+<body>
+    <h1>名前と番号を入力してください</h1>
+
+    <form id="inputForm">
+        <label for="name">名前：</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="number">番号：</label>
+        <input type="text" id="number" name="number" required><br><br>
+
+        <button type="submit">送信</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('inputForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var name = document.getElementById('name').value;
+            var number = document.getElementById('number').value;
+
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'name=' + encodeURIComponent(name) + '&number=' + encodeURIComponent(number)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerHTML = '名前: ' + data.name + '<br>番号: ' + data.number;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
